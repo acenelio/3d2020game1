@@ -11,11 +11,13 @@ public class PlayerMove : MonoBehaviour
     float RotationSpeed = 10f;
 
     Rigidbody Rb;
+    Animator Anim;
 
     // Start is called before the first frame update
     void Start()
     {
         Rb = GetComponent<Rigidbody>();
+        Anim = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -27,11 +29,15 @@ public class PlayerMove : MonoBehaviour
         Rb.velocity = new Vector3(h * Speed, Rb.velocity.y, v * Speed);
 
         if (h != 0f || v != 0) {
+            Anim.SetInteger("state", 1);
             transform.rotation = Quaternion.Slerp(
                 transform.rotation,
                 Quaternion.LookRotation(new Vector3(h, 0f, v)),
                 Time.deltaTime * RotationSpeed
             );
+        }
+        else {
+            Anim.SetInteger("state", 0);
         }
     }
 }
