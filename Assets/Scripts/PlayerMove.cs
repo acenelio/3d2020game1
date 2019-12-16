@@ -7,6 +7,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField]
     float Speed = 4f;
 
+    [SerializeField]
+    float RotationSpeed = 10f;
+
     Rigidbody Rb;
 
     // Start is called before the first frame update
@@ -22,5 +25,13 @@ public class PlayerMove : MonoBehaviour
         float v = Input.GetAxisRaw("Vertical");
 
         Rb.velocity = new Vector3(h * Speed, Rb.velocity.y, v * Speed);
+
+        if (h != 0f || v != 0) {
+            transform.rotation = Quaternion.Slerp(
+                transform.rotation,
+                Quaternion.LookRotation(new Vector3(h, 0f, v)),
+                Time.deltaTime * RotationSpeed
+            );
+        }
     }
 }
