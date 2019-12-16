@@ -200,6 +200,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 4
+  RotationSpeed: 10
 --- !u!54 &264111994
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -367,6 +368,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 9500000, guid: 57067c93392fd0447ade3c8c568543cb, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 01f099f16911dd2488b4fa389851e70f, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 57067c93392fd0447ade3c8c568543cb, type: 3}
 --- !u!1 &1420119969
